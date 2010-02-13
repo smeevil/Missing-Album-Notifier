@@ -1,0 +1,14 @@
+= Missing Album Notifier
+
+Checks your iTunes library for artists you like and albums you have, then consults various on-line sources to find missing albums for you.
+
+Well, that's what it is supposed to do when we're done with it...
+
+== Requirements
+
+* MacRuby (tested with 0.5)
+
+== Contributors
+
+* Gerard de Brieder (Smeevil)
+* Wes Oldenbeuving (Narnach)

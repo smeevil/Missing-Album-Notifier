@@ -5,10 +5,7 @@
 #  Created by Gerard de Brieder on 2/13/10.
 #  Copyright (c) 2010 Govannon. All rights reserved.
 #
-
-class Album
-  attr_accessor :name
-end
+require 'album'
 
 class Controller
 	attr_writer :albumsTableView

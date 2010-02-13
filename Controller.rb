@@ -27,6 +27,7 @@ class Controller
 		@albums.size
 	end
 
+
 	def tableView(view, objectValueForTableColumn:column, row:index)
 		album = @albums[index]
 		case column.identifier
@@ -42,6 +43,10 @@ class Controller
   		@albums<<new_album
     end
 	end
+	
+	def album_detail_request(sender)
+	  puts "sender : #{sender.clickedRow.inspect}"
+  end
 end
 
 

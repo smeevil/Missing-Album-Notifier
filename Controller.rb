@@ -8,9 +8,11 @@
 require 'album'
 
 class Controller
+	attr_accessor :album_details, :main_window
 	attr_writer :albumsTableView
 	attr_writer :coverImage
 	attr_writer :artistName
+	attr_writer :albumName
 
 	def awakeFromNib
 	  @artistName.setObjectValue("Opeth")
@@ -38,12 +40,30 @@ class Controller
   		new_album=Album.new
   		new_album.name=a
   		@albums<<new_album
-    end
+	  end
 	end
 	
 	def album_detail_request(sender)
+	  puts "something happend in the album details"
 	  puts "sender : #{sender.clickedRow.inspect}"
-  end
+	  album = @albums[sender.clickedRow]
+	  puts "opening album details view"
+	  NSApp.beginSheet(@album_details, 
+			modalForWindow:@main_window, 
+			modalDelegate:self, 
+			didEndSelector:nil,
+			contextInfo:nil)
+	  puts "Setting label"
+	  
+	  @albumName.setObjectValue("Opeth - #{album.name}")
+	  @album_details.orderOut(nil)
+	  NSApp.endSheet(@album_details)
+    end
+
+	def album_details_close
+	  @album_details.orderOut(nil)
+      NSApp.endSheet(@album_details)
+	end
 end
 
 

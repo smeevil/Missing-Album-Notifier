@@ -56,8 +56,7 @@ class Controller
 	  puts "Setting label"
 	  
 	  @albumName.setObjectValue("Opeth - #{album.name}")
-	  @album_details.orderOut(nil)
-	  NSApp.endSheet(@album_details)
+	  
     end
 
 	def album_details_close
